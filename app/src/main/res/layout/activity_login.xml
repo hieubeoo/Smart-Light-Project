@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login"
+    android:background="@drawable/background">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/user"
+        android:src="@drawable/user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextNhapMaCode"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="65dp"
+        android:autofillHints=""
+        android:background="@drawable/input_code"
+        android:gravity="center"
+        android:hint="@string/nhap_ma_code"
+        android:inputType="textPassword|textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <CheckBox
+        android:id="@+id/checkboxNhoMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDangNhap"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapMaCode"
+        app:layout_constraintVertical_bias="0.321" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:text="Nhớ mật khẩu"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDangNhap"
+        app:layout_constraintStart_toEndOf="@+id/checkboxNhoMatKhau"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapMaCode"
+        app:layout_constraintVertical_bias="0.37" />
+
+
+    <TextView
+        android:id="@+id/textQuenMatKhau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="24dp"
+        android:text="Quên mật khẩu?"
+        android:textColor="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/buttonDangNhap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapMaCode"
+        app:layout_constraintVertical_bias="0.882" />
+
+    <Button
+        android:id="@+id/buttonDangNhap"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/button"
+        android:text="@string/dang_nhap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNhapMaCode" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:text="@string/ghi_chu"
+        android:textColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDangNhap" />
+</androidx.constraintlayout.widget.ConstraintLayout>

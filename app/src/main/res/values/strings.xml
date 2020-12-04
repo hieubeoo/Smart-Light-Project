@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">project</string>
+    <string name="ghi_chu">Mã code gồm 6 kí tự sẽ được đính kèm khi mua sản
+ phẩm đèn Smart Light</string>
+    <string name="dang_nhap">Đăng nhập</string>
+    <string name="nhap_ma_code">Nhập mã code</string>
+    <string name="user">user</string>
+    <string name = "home">Trang chủ</string>
+    <string name="individual">Cá nhân</string>
+    <string name="information">Thông tin</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
