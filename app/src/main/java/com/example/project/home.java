@@ -35,8 +35,8 @@ public class home extends Fragment {
         super.onCreate(savedInstanceState);
         devices = new ArrayList<>();
         devices.add(new device("Phòng khách",R.drawable.living_room_project));
-        devices.add(new device("Phòng bếp",R.drawable.bed_room_project));
+        devices.add(new device("Phòng bếp",R.drawable.kitchen_room_project));
         devices.add(new device("Phòng tắm",R.drawable.bath_room_project));
-        devices.add(new device("Phòng ngủ",R.drawable.bath_room_project));
+        devices.add(new device("Phòng ngủ",R.drawable.bed_room_project));
     }
 }

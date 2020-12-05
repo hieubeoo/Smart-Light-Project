@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -20,14 +22,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     FrameLayout frameLayout;
-
+    home fragment_home ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         frameLayout = findViewById(R.id.fragment_container);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        fragment_home = new home();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragment_home).commit();
 
     }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
