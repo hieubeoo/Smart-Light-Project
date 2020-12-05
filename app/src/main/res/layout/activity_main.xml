@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/custom_nav_bottom"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/bottom_menu" />
+        app:menu="@menu/bottom_menu"/>
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
