@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home"
-    android:background="@drawable/home_fragment">
+    android:background="@drawable/home_fragment"
+    android:id="@+id/fragment_home">
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
