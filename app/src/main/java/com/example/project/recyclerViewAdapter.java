@@ -1,6 +1,7 @@
 package com.example.project;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import org.w3c.dom.Text;
 import java.util.List;
@@ -31,6 +33,13 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txtDevice.setText(deviceList.get(position).getTen());
         holder.img.setImageResource(deviceList.get(position).getImage());
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, bulb_activity.class);
+                context.startActivity(intent);
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -39,10 +48,12 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         ImageView img;
         TextView txtDevice;
+        CardView cardView;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.imageViewCardView);
             txtDevice = itemView.findViewById(R.id.textViewCardView);
+            cardView = itemView.findViewById(R.id.card_view_device);
         }
     }
 }

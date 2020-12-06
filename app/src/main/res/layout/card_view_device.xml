@@ -18,7 +18,8 @@
         <ImageView
             android:id="@+id/imageViewCardView"
             android:layout_width="70dp"
-            android:layout_height="70dp" />
+            android:layout_height="70dp"
+            android:contentDescription="@string/todo" />
         <TextView
             android:layout_marginTop="2dp"
             android:id="@+id/textViewCardView"
@@ -26,7 +27,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif"
             android:textColor="@color/textCardView"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
