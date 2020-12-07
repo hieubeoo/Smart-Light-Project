@@ -20,6 +20,7 @@ public class login extends AppCompatActivity {
     EditText edtMaCode;
     CheckBox cbNhoMatKhau;
     TextView txtQuenMatKhau;
+    DatabaseReference dataDangNhap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +28,8 @@ public class login extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         AnhXa();
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
+//        dataDangNhap = FirebaseDatabase.getInstance().getReference();
+//        dataDangNhap.child("user1").child("trangthaiden").setValue(147258);
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
