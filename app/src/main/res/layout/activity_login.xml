@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".login"
     android:background="@drawable/background">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:contentDescription="@string/user"
         android:src="@drawable/user"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginLeft="2dp"
-        android:text="Nhớ mật khẩu"
+        android:text="@string/nho_mat_khau"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toTopOf="@+id/buttonDangNhap"
         app:layout_constraintStart_toEndOf="@+id/checkboxNhoMatKhau"
@@ -64,7 +65,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginBottom="24dp"
-        android:text="Quên mật khẩu?"
+        android:text="@string/quen_mat_khau"
         android:textColor="@color/grey"
         app:layout_constraintBottom_toTopOf="@+id/buttonDangNhap"
         app:layout_constraintEnd_toEndOf="parent"
