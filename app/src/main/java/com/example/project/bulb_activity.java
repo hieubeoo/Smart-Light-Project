@@ -45,10 +45,11 @@ public class bulb_activity extends AppCompatActivity {
 
             }
         });
+
         dataBulb.child("user1").child("light").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                txtDoSang.setText(snapshot.getValue()+"%");
+                txtDoSang.setText(snapshot.getValue()+" lux");
             }
 
             @Override

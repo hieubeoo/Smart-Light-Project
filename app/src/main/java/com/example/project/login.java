@@ -1,5 +1,6 @@
 package com.example.project;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -11,9 +12,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class login extends AppCompatActivity {
     Button btnDangNhap;
@@ -28,15 +33,29 @@ public class login extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         AnhXa();
-//        dataDangNhap = FirebaseDatabase.getInstance().getReference();
-//        dataDangNhap.child("user1").child("trangthaiden").setValue(147258);
+        dataDangNhap = FirebaseDatabase.getInstance().getReference();
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(login.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        @Override
+        public void onClick(View v) {
+            dataDangNhap.child("user1").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    for(DataSnapshot postDataSnapshot : snapshot.getChildren()){
+                        if(postDataSnapshot.getValue().toString().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
+                            Intent intent = new Intent(login.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+    });
+
+
     }
     public void AnhXa(){
         btnDangNhap = findViewById(R.id.buttonDangNhap);
