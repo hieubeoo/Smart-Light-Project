@@ -37,11 +37,11 @@ public class login extends AppCompatActivity {
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dataDangNhap.child("user1").addValueEventListener(new ValueEventListener() {
+            dataDangNhap.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     for(DataSnapshot postDataSnapshot : snapshot.getChildren()){
-                        if(postDataSnapshot.getValue().toString().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
+                        if(postDataSnapshot.getKey().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
                             Intent intent = new Intent(login.this, MainActivity.class);
                             startActivity(intent);
                         }
