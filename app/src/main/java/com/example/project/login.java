@@ -34,28 +34,71 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         AnhXa();
         dataDangNhap = FirebaseDatabase.getInstance().getReference();
+
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            dataDangNhap.addValueEventListener(new ValueEventListener() {
+            dataDangNhap.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    for(DataSnapshot postDataSnapshot : snapshot.getChildren()){
-                        if(postDataSnapshot.getKey().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
-                            Intent intent = new Intent(login.this, MainActivity.class);
-                            startActivity(intent);
-                        }
+                    for (final DataSnapshot postDataSnapshotUser : snapshot.getChildren()){
+                        dataDangNhap.child(postDataSnapshotUser.getKey()).addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                for (DataSnapshot postDataSnapshotPassword : snapshot.getChildren()){
+                                    if(postDataSnapshotPassword.getValue().toString().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
+                                        Intent intent = new Intent(login.this, MainActivity.class).putExtra("password", edtMaCode.getText().toString())
+                                                .putExtra("node", postDataSnapshotUser.getKey());
+                                        startActivity(intent);
+                                        Toast.makeText(login.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    }
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
                     }
                 }
+
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
             });
+//            dataDangNhap.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//              for( final DataSnapshot postDataSnapshotUser : snapshot.getChildren()){
+//                  dataDangNhap.child(postDataSnapshotUser.getKey()).addValueEventListener(new ValueEventListener() {
+//                      @Override
+//                      public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                          for (DataSnapshot postDataSnapshotPassword : snapshot.getChildren()){
+//                              if(postDataSnapshotPassword.getValue().toString().equals(edtMaCode.getText().toString()) && edtMaCode.getText().toString().length() > 5){
+//                                  Intent intent = new Intent(login.this, MainActivity.class).putExtra("password", edtMaCode.getText().toString())
+//                                          .putExtra("node", postDataSnapshotUser.getKey());
+//                                  startActivity(intent);
+//                                  break;
+//                              }
+//                          }
+//                      }
+//                      @Override
+//                      public void onCancelled(@NonNull DatabaseError error) {
+//
+//                      }
+//                  });
+//                  break;
+//               }
+//           }
+//           @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//     
         }
-    });
-
-
+        });
     }
     public void AnhXa(){
         btnDangNhap = findViewById(R.id.buttonDangNhap);

@@ -15,9 +15,11 @@ import java.util.List;
 public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapter.MyViewHolder> {
     private Context context;
     private List<device> deviceList;
-    public recyclerViewAdapter(Context context, List<device> deviceList) {
+    private String node;
+    public recyclerViewAdapter(Context context, List<device> deviceList, String node) {
         this.context = context;
         this.deviceList = deviceList;
+        this.node = node;
     }
     @NonNull
     @Override
@@ -31,13 +33,17 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.txtDevice.setText(deviceList.get(position).getTen());
         holder.img.setImageResource(deviceList.get(position).getImage());
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, bulb_activity.class);
-                context.startActivity(intent);
-            }
-        });
+        if(position == 0){
+            holder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, bulb_activity.class)
+                                .putExtra("node", node);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
     }
     @Override
     public int getItemCount() {

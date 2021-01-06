@@ -8,4 +8,6 @@
     <color name="button">#006CF8</color>
     <color name="navigation_bottom">#E4EBEF</color>
     <color name="textCardView">#0C0C0C</color>
+    <color name="backgroundBulb">#E4EBEF</color>
+    <color name="buttonOnOff">#63C6ED</color>
 </resources>

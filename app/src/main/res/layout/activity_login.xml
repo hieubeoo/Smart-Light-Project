@@ -28,7 +28,7 @@
         android:background="@drawable/input_code"
         android:gravity="center"
         android:hint="@string/nhap_ma_code"
-        android:inputType="textPersonName"
+        android:inputType="textPersonName|textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"

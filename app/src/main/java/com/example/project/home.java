@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +20,15 @@ import java.util.List;
 public class home extends Fragment {
     List<device> devices;
     recyclerViewAdapter recyclerViewAdapter;
+    String node;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)  {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        node = getArguments().getString("node");
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerViewAdapter = new recyclerViewAdapter(getContext(), devices);
-        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerViewAdapter = new recyclerViewAdapter(getContext(), devices, node);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
-        // Inflate the layout for this fragment
+        recyclerView.setAdapter(recyclerViewAdapter);
         return view;
     }
     @Override
