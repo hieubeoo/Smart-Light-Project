@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapter.MyViewHolder> {
@@ -37,13 +37,12 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
             holder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, bulb_activity.class)
+                    Intent intent = new Intent(context, controlMode.class)
                                 .putExtra("node", node);
                     context.startActivity(intent);
                 }
             });
         }
-
     }
     @Override
     public int getItemCount() {
